@@ -1,0 +1,98 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Portfolio de Milo Vocker - Desarrollador Full Stack Junior" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/mvicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-white text-dark-800 font-sans antialiased">
+    <slot />
+    
+    <script>
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Animaciones iniciales
+      gsap.from('.hero-content', {
+        duration: 1,
+        y: 50,
+        opacity: 0,
+        ease: 'power3.out',
+        delay: 0.2
+      });
+      
+      // Animaciones con scroll
+      gsap.utils.toArray('.animate-on-scroll').forEach((element) => {
+        gsap.from(element, {
+          duration: 0.8,
+          y: 50,
+          opacity: 0,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+      
+      // Animación de las skills
+      gsap.utils.toArray('.skill-item').forEach((element, index) => {
+        gsap.from(element, {
+          duration: 0.6,
+          y: 30,
+          opacity: 0,
+          ease: 'power2.out',
+          delay: index * 0.1,
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.6;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+</style>

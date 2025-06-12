@@ -1,0 +1,56 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="text-xl font-bold gradient-text flex items-center">
+        Milo Vocker <img src="/mvicon.png" alt="Logo de Milo Vocker" class="w-24 h-auto pl-5" />
+      </div>
+      
+      
+      <div class="hidden md:flex space-x-8">
+        <a href="#inicio" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Inicio</a>
+        <a href="#sobre-mi" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Sobre mí</a>
+        <a href="#habilidades" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Habilidades</a>
+        <a href="#proyectos" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Último proyecto</a>
+        <a href="#contacto" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Contacto</a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <button class="md:hidden mobile-menu-btn" aria-label="Menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="mobile-menu hidden md:hidden mt-4 pb-4">
+      <div class="flex flex-col space-y-4">
+        <a href="#inicio" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Inicio</a>
+        <a href="#sobre-mi" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Sobre mí</a>
+        <a href="#habilidades" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Habilidades</a>
+        <a href="#proyectos" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Último proyecto</a>
+        <a href="#contacto" class="text-dark-600 hover:text-primary-600 transition-colors duration-300">Contacto</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+  
+  // Cerrar menú al hacer click en un enlace
+  const mobileLinks = document.querySelectorAll('.mobile-menu a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>
