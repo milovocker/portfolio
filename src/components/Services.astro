@@ -1,0 +1,179 @@
+---
+const services = [
+  {
+    title: "Sitios Web Corporativos",
+    description: "Páginas web profesionales que representan tu marca con elegancia y funcionalidad.",
+    features: [
+      "Diseño responsive y moderno",
+      "Optimización SEO incluida",
+      "Panel de administración",
+      "Integración con redes sociales",
+      "Formularios de contacto",
+      "Certificado SSL incluido"
+    ],
+    price: "Desde 300€",
+    popular: false,
+    examples: [
+      "Páginas corporativas",
+      "Portfolios profesionales", 
+      "Landing pages",
+      "Sitios de servicios"
+    ]
+  },
+  {
+    title: "Aplicaciones Web Personalizadas",
+    description: "Soluciones web a medida con bases de datos para gestionar tu negocio de forma eficiente.",
+    features: [
+      "Base de datos personalizada",
+      "Panel de administración completo",
+      "Gestión de usuarios y roles",
+      "Reportes y estadísticas",
+      "API REST integrada",
+      "Backup automático"
+    ],
+    price: "Desde 750€",
+    popular: true,
+    examples: [
+      "Gestión de inventario",
+      "Sistema de reservas",
+      "CRM personalizado",
+      "Plataforma e-learning"
+    ]
+  },
+  {
+    title: "Tiendas Online (E-commerce)",
+    description: "Tiendas virtuales completas con pasarela de pagos y gestión de productos.",
+    features: [
+      "Catálogo de productos",
+      "Carrito de compras",
+      "Pasarela de pagos segura",
+      "Gestión de pedidos",
+      "Panel de administración",
+      "Integración con envíos"
+    ],
+    price: "Desde 950€",
+    popular: false,
+    examples: [
+      "Tienda de ropa",
+      "Productos digitales",
+      "Marketplace básico",
+      "Tienda de servicios"
+    ]
+  }
+];
+---
+
+<section id="servicios" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+  <div class="container mx-auto px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 animate-on-scroll">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          Mis <span class="gradient-text">Servicios</span>
+        </h2>
+        <p class="text-xl text-dark-600 max-w-3xl mx-auto leading-relaxed">
+          Desarrollo soluciones web profesionales adaptadas a las necesidades específicas de tu negocio. 
+          Desde sitios corporativos hasta aplicaciones complejas con bases de datos.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        {services.map((service, index) => (
+          <div class={`relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden animate-on-scroll ${service.popular ? 'ring-2 ring-primary-500' : ''}`}>
+            {service.popular && (
+              <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <span class="bg-gradient-to-r from-primary-500 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                  MÁS POPULAR
+                </span>
+              </div>
+            )}
+            
+            <div class="p-8">
+              <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-dark-800 mb-3">{service.title}</h3>
+                <p class="text-dark-600 leading-relaxed mb-4">{service.description}</p>
+                <div class="text-3xl font-bold gradient-text">{service.price}</div>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="font-semibold text-dark-800 mb-3">✨ Incluye:</h4>
+                <ul class="space-y-2">
+                  {service.features.map((feature) => (
+                    <li class="flex items-start gap-2 text-dark-600">
+                      <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span class="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="font-semibold text-dark-800 mb-3">🎯 Ejemplos:</h4>
+                <div class="flex flex-wrap gap-2">
+                  {service.examples.map((example) => (
+                    <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-xs font-medium">
+                      {example}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <a 
+                href="#contacto" 
+                class={`block w-full text-center py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
+                  service.popular 
+                    ? 'bg-gradient-to-r from-primary-500 to-blue-500 text-white shadow-lg hover:shadow-xl' 
+                    : 'border-2 border-primary-500 text-primary-600 hover:bg-primary-500 hover:text-white'
+                }`}
+              >
+                Solicitar Presupuesto
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Sección de proceso -->
+      <div class="bg-white rounded-2xl shadow-xl p-8 animate-on-scroll">
+        <h3 class="text-3xl font-bold text-center mb-12 text-dark-800">
+          ¿Cómo <span class="gradient-text">trabajamos</span>?
+        </h3>
+        
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-primary-600">1</span>
+            </div>
+            <h4 class="font-bold text-dark-800 mb-2">Consulta</h4>
+            <p class="text-dark-600 text-sm">Hablamos de tu proyecto y necesidades específicas</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-blue-600">2</span>
+            </div>
+            <h4 class="font-bold text-dark-800 mb-2">Propuesta</h4>
+            <p class="text-dark-600 text-sm">Te envío un presupuesto detallado y cronograma</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-green-600">3</span>
+            </div>
+            <h4 class="font-bold text-dark-800 mb-2">Desarrollo</h4>
+            <p class="text-dark-600 text-sm">Creo tu proyecto con actualizaciones constantes</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl font-bold text-purple-600">4</span>
+            </div>
+            <h4 class="font-bold text-dark-800 mb-2">Entrega</h4>
+            <p class="text-dark-600 text-sm">Lanzo tu proyecto y te enseño a gestionarlo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
