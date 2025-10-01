@@ -1,87 +1,50 @@
 ---
-
-
-const frontendSkills = [
-  { name: 'HTML5', icon: 'html-5.svg' },
-  { name: 'Bootstrap', icon: 'bootstrap.svg' },
-  { name: 'CSS3', icon: 'css-3.svg' },
-  { name: 'JavaScript', icon: 'javascript.svg' },
-  { name: 'Astro', icon: 'astro.svg' },
-  { name: 'Vue.js', icon: 'vue.svg' },
-  { name: 'Tailwind CSS', icon: 'tailwind.svg' }
+const possibilities = [
+  {
+    name: 'Webs Corporativas',
+    description: 'Sitios web profesionales para empresas, con información, servicios y contacto.',
+    icon: 'corporate.svg'
+  },
+  {
+    name: 'Landing Pages',
+    description: 'Páginas de aterrizaje optimizadas para campañas de marketing y captación de clientes.',
+    icon: 'landing.svg'
+  },
+  {
+    name: 'Blogs y Portafolios',
+    description: 'Plataformas para compartir contenido, mostrar trabajos y atraer oportunidades.',
+    icon: 'blog.svg'
+  },
+  {
+    name: 'Reservas y Citas Online',
+    description: 'Sistemas para gestionar reservas, citas y agendas de manera eficiente.',
+    icon: 'calendar.svg'
+  },
+  {
+    name: 'Catálogos Digitales',
+    description: 'Presentación interactiva de productos y servicios en formato digital.',
+    icon: 'catalog.svg'
+  }
 ];
 
-const backendSkills = [
-  { name: 'Node.js', icon: 'node-js.svg' },
-  { name: 'Python', icon: 'python.svg' },
-  { name: 'PHP', icon: 'php.svg' },
-  { name: 'Laravel', icon: 'laravel.svg' },
-  { name: 'MySQL', icon: 'mysql.svg' },
-  { name: 'REST APIs', icon: 'data-apis.svg' }
-];
-
-const tools = [
-  { name: 'Git', icon: 'git.svg' },
-  { name: 'WordPress', icon: 'wordpress.svg' },
-  { name: 'VS Code', icon: 'vscode.svg' },
-  { name: 'Canva', icon: 'canva.svg' },
-  { name: 'Postman', icon: 'postman.svg' },
-  { name: 'Linux', icon: 'linux.svg' }
-];
+// <img src={`/svgs/${item.icon}`} alt={`${item.name} icon`} class="w-12 h-12" />
 ---
 
-<section id="habilidades" class="py-20 bg-white">
+<section id="habilidades" class="py-20 bg-neutral-950">
   <div class="container mx-auto px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll">
-        Mis <span class="gradient-text">habilidades</span>
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll text-white">
+        Mis <span class="gradient-text">posibilidades</span>
       </h2>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Frontend -->
-        <div class="animate-on-scroll">
-          <h3 class="text-2xl font-bold mb-8 text-start text-dark-800">Frontend</h3>
-          <div class="flex flex-col gap-4 ">
-            {frontendSkills.map((skill) => (
-              <div class="flex items-center gap-3 text-start">
-                <span class="text-2xl">
-                  <img src={`/svgs/${skill.icon}`} alt={`${skill.name} logo`} class="w-8 h-8" />
-                </span>
-                <span class="text-dark-700 font-medium">{skill.name}</span>
-              </div>
-            ))}
+      <div class="grid md:grid-cols-2 gap-8">
+        {possibilities.map((item) => (
+          <div class="animate-on-scroll glass-effect rounded-2xl p-8 shadow-lg flex gap-6 items-start">
+            <div>
+              <h3 class="text-2xl font-bold mb-2 text-white">{item.name}</h3>
+              <p class="text-zinc-200">{item.description}</p>
+            </div>
           </div>
-        </div>
-
-        <!-- Backend -->
-        <div class="animate-on-scroll">
-          <h3 class="text-2xl font-bold mb-8 text-start text-dark-800">Backend</h3>
-          <div class="flex flex-col gap-4">
-            {backendSkills.map((skill) => (
-              <div class="flex items-center gap-3">
-                <span class="text-2xl">
-                  <img src={`/svgs/${skill.icon}`} alt={`${skill.name} logo`} class="w-8 h-8" />
-                </span>                
-                <span class="text-dark-700 font-medium">{skill.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Tools -->
-        <div class="animate-on-scroll">
-          <h3 class="text-2xl font-bold mb-8 text-start text-dark-800">Herramientas</h3>
-          <div class="flex flex-col gap-4">
-            {tools.map((skill) => (
-              <div class="flex items-center gap-3">
-                <span class="text-2xl">
-                  <img src={`/svgs/${skill.icon}`} alt={`${skill.name} logo`} class="w-8 h-8" />
-                </span>
-                <span class="text-dark-700 font-medium">{skill.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </div>

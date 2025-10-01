@@ -4,7 +4,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "Portfolio de Milo Vocker - Desarrollador Full Stack Junior" } = Astro.props;
+const { title, description = "Portfolio de Milo Vocker - Fotógrafo Profesional" } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,18 +20,14 @@ const { title, description = "Portfolio de Milo Vocker - Desarrollador Full Stac
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-white text-dark-800 font-sans antialiased">
+  <body class="bg-neutral-950 text-neutral-100 font-sans antialiased">
     <slot />
-    
     <script>
       import { gsap } from 'gsap';
       import { ScrollTrigger } from 'gsap/ScrollTrigger';
-      
       gsap.registerPlugin(ScrollTrigger);
-      
-      // Animaciones iniciales
       gsap.from('.hero-content', {
         duration: 1,
         y: 50,
@@ -39,8 +35,6 @@ const { title, description = "Portfolio de Milo Vocker - Desarrollador Full Stac
         ease: 'power3.out',
         delay: 0.2
       });
-      
-      // Animaciones con scroll
       gsap.utils.toArray('.animate-on-scroll').forEach((element) => {
         gsap.from(element, {
           duration: 0.8,
@@ -54,22 +48,6 @@ const { title, description = "Portfolio de Milo Vocker - Desarrollador Full Stac
           }
         });
       });
-      
-      // Animación de las skills
-      gsap.utils.toArray('.skill-item').forEach((element, index) => {
-        gsap.from(element, {
-          duration: 0.6,
-          y: 30,
-          opacity: 0,
-          ease: 'power2.out',
-          delay: index * 0.1,
-          scrollTrigger: {
-            trigger: element,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          }
-        });
-      });
     </script>
   </body>
 </html>
@@ -78,21 +56,21 @@ const { title, description = "Portfolio de Milo Vocker - Desarrollador Full Stac
   html {
     scroll-behavior: smooth;
   }
-  
   body {
     line-height: 1.6;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    background: #18181b;
+    color: #f3f4f6;
   }
-  
   .gradient-text {
-    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+    background: linear-gradient(90deg, #e0e7ff 0%, #6366f1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
   .glass-effect {
     backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 </style>
