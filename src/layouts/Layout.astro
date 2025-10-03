@@ -4,7 +4,19 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "Portfolio de Milo Vocker - Fotógrafo Profesional" } = Astro.props;
+interface PageMeta {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+}
+
+const metadata: PageMeta = {
+  title: "Milo Vocker | Desarrollo web en Lanzarote",
+  description: "Portfolio de Milo Vocker, desarrollador web en Lanzarote.",
+  keywords: "desarrollo web, Lanzarote, Milo Vocker, diseño web, páginas web",
+  canonical: "https://milovocker.com/"
+};
 ---
 
 <!doctype html>
@@ -13,9 +25,10 @@ const { title, description = "Portfolio de Milo Vocker - Fotógrafo Profesional"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/mvicon.png" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <meta name="description" content={metadata.description} />
+    <meta name="keywords" content={metadata.keywords} />
+    <link rel="canonical" href={metadata.canonical} />
+    <title>{metadata.title}</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
